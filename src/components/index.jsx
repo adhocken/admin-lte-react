@@ -8,13 +8,16 @@ import { Route, withRouter, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import LoadingBar from "react-top-loading-bar";
-import { Card, Col,PanelContent, Row, HeaderContent } from "./panelContent";
+import { Card, Col, PanelContent, Row, HeaderContent } from "./panelContent";
 import {
   LoadingContent,
-  LoadingTopBar,
   openTab,
   ReanderField,
-  ReanderSelect
+  ReanderSelect,
+  addWindowClass,
+  calculateWindowSize,
+  useWindowSize,
+  removeWindowClass
 } from "./helper";
 import { connect } from "react-redux";
 import { Field } from "redux-form";
@@ -23,19 +26,25 @@ import { reduxForm } from "redux-form";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-
+import ModalGlobal from "./helper/ModalGlobal";
+import TabelMaster from "./helper/TabelMaster";
 export {
+  ModalGlobal,
+  TabelMaster,
   Provider,
+  removeWindowClass,
   BrowserRouter,
   ReactDOM,
   Row,
   Col,
   ReanderSelect,
   openTab,
+  addWindowClass,
+  calculateWindowSize,
+  useWindowSize,
   Field,
   Button,
   connect,
-  LoadingTopBar,
   LoadingContent,
   reduxForm,
   ReanderField,

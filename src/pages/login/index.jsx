@@ -20,11 +20,15 @@ const Login = (props) => {
 
   const handleSubmit = () => {
     dispatch(utilityAction.setProgres());
-    dispatch(utilityAction.setLoading(true));
+    dispatch(
+      utilityAction.setLoading({
+        content: true,
+        button: true
+      })
+    );
     setTimeout(() => {
-    dispatch(utilityAction.setLoading(false));
+      dispatch(utilityAction.stopLoading());
       props.history.push("/dashboard");
-      window.location.reload();
     }, 4000);
   };
   return (
@@ -37,7 +41,7 @@ const Login = (props) => {
         </div>
         <div className="card-body">
           <p className="login-box-msg">Sign in to start your session</p>
-          <FormLogin onSubmit={(data)=>handleSubmit(data)} />
+          <FormLogin onSubmit={(data) => handleSubmit(data)} />
         </div>
       </div>
     </div>
